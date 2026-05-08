@@ -35,7 +35,7 @@ def find_pages(index, query):
         print("Query contained no valid search terms after processing.")
         return []
 
-    # find pages that contain the first word - this is our starting set
+    # find pages that contain the first word 
     first_word = query_words[0]
 
     if first_word not in index:

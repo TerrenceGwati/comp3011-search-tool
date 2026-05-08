@@ -10,10 +10,10 @@ from bs4 import BeautifulSoup
 from urllib.parse import urljoin, urlparse
 
 
-# the base url we're working with - set once here so it's easy to change
+# the base url 
 BASE_URL = "https://quotes.toscrape.com"
 
-# politeness window in seconds - coursework requires at least 6
+# politeness window in seconds 
 POLITENESS_DELAY = 6
 
 
@@ -44,7 +44,7 @@ def get_all_pages(base_url=BASE_URL, delay=POLITENESS_DELAY):
             print(f"Fetching: {url}")
             response = requests.get(url, timeout=10)
 
-            # if the request failed (404, 500 etc) just skip this page
+            # if the request failed just skip this page
             if response.status_code != 200:
                 print(f"  -> Got status {response.status_code}, skipping")
                 continue
@@ -91,7 +91,7 @@ def extract_internal_links(soup, current_url, base_url):
     for anchor in soup.find_all("a", href=True):
         href = anchor["href"]
 
-        # turn relative urls into absolute ones e.g. /page/2 -> https://quotes.toscrape.com/page/2
+        # turn relative urls into absolute ones 
         absolute = urljoin(current_url, href)
 
         parsed = urlparse(absolute)

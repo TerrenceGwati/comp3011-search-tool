@@ -81,7 +81,7 @@ def handle_command(command_line, index):
             print("Usage: print <word>")
             print("Example: print nonsense")
         else:
-            # only use the first word for print - the spec asks for one word
+            # only use the first word for print 
             print_word_index(index, args[0])
 
     elif command == "find":
